@@ -11,7 +11,7 @@ namespace BIS
     public class CaesarCipher
     {
         const string ruAlphabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
-        const string enAlphabet = "QWERTYUIOPASDFGHJKLZXCVBNM";
+        const string enAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         private string TextEncode(string text, int shift)
         {
@@ -42,7 +42,7 @@ namespace BIS
                 }
                 else
                 {
-                    int encodeIndex = (alphabetCharCount + index + shift);
+                    int encodeIndex = (alphabetCharCount + index + shift) % alphabetCharCount;
                     newString.Append(fullAlphabet[encodeIndex]);
                 }
             }
@@ -58,11 +58,11 @@ namespace BIS
             int result = 0;
             int length = text.Length;
 
-            if(Regex.IsMatch(text, "^[А-Яа-я]+$"))
+            if(Regex.IsMatch(text, "^[А-Яа-я .!-,;]+$"))
             {
                 result = 1;
             }
-            else if(Regex.IsMatch(text, "^[A-Za-z]+$"))
+            else if(Regex.IsMatch(text, "^[A-Za-z .!-,;]+$"))
             {
                 result = 2;
             }
