@@ -12,7 +12,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             CaesarCipher caesarCipher = new CaesarCipher();
-            string s = caesarCipher.Encrypt("Привет, меня зовут Кирилл.", 6);
+            string s = caesarCipher.Encrypt("Привет, меня зовут Кирилл2432423.", 6);
             Console.WriteLine(s);
             Console.WriteLine(caesarCipher.Decrypt(s, 6));
             Console.ReadKey();

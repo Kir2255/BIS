@@ -56,13 +56,11 @@ namespace BIS
         private int CheckTextLanguage(string text)
         {
             int result = 0;
-            int length = text.Length;
-
-            if(Regex.IsMatch(text, "^[А-Яа-я .!-,;]+$"))
+            if(Regex.IsMatch(text, "^[А-Яа-я\\d\\W]+$"))
             {
                 result = 1;
             }
-            else if(Regex.IsMatch(text, "^[A-Za-z .!-,;]+$"))
+            else if(Regex.IsMatch(text, "^[A-Za-z\\d\\W]+$"))
             {
                 result = 2;
             }
