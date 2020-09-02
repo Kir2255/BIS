@@ -22,13 +22,21 @@ namespace BISWpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MagicSquare magicSquare;
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        private void ChangeVisibility()
+        {
+            CaesarCipherCanvas.Visibility = Visibility.Hidden;
+            MagicSquareCanvas.Visibility = Visibility.Hidden;
+        }
+
         private void CaesarMenuItem_Click(object sender, RoutedEventArgs e)
         {
+            ChangeVisibility();
             CaesarCipherCanvas.Visibility = Visibility.Visible;
         }
 
@@ -69,6 +77,47 @@ namespace BISWpf
                 {
                     DecryptedText.Content = "Decrypted string: " + temp;
                 }
+            }
+        }
+
+        private void SquareEncryptButton_Click(object sender, RoutedEventArgs e)
+        {
+            EncryptedMagicStringLabel.Content = "";
+            MagicSquareTextLabel.Content = "";
+            DecryptedMagicStringLabel.Content = "";
+            MagicSquareLabel.Content = "";
+
+            if (MagicStringToEncodeBox.Text == null)
+            {
+                MessageBox.Show("Неверный ввод строки для шифрования.", "Ошибка");
+            }
+            else
+            {
+                magicSquare = new MagicSquare();
+
+                EncryptedMagicStringLabel.Content = "Encrypted string: " + magicSquare.Encrypt(MagicStringToEncodeBox.Text);
+                MagicSquareLabel.Content = magicSquare.magicSquareString;
+                MagicSquareTextLabel.Content = magicSquare.resultMagicSquareString;
+            }
+        }
+
+        private void MagicSquareMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeVisibility();
+            MagicSquareCanvas.Visibility = Visibility.Visible;
+        }
+
+        private void SquareDecryptButton_Click(object sender, RoutedEventArgs e)
+        {
+            DecryptedMagicStringLabel.Content = "";
+
+            if (EncryptedMagicStringLabel.Content == null)
+            {
+                MessageBox.Show("Строка для дешифорвания отсутствует.", "Ошибка");
+            }
+            else
+            {
+                DecryptedMagicStringLabel.Content = "Decrypted string: " + magicSquare.Decrypt(EncryptedMagicStringLabel.Content.ToString().Replace("Encrypted string: ", ""), magicSquare.magicSquare);
             }
         }
     }
