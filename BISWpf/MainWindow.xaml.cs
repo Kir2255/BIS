@@ -32,6 +32,7 @@ namespace BISWpf
         {
             CaesarCipherCanvas.Visibility = Visibility.Hidden;
             MagicSquareCanvas.Visibility = Visibility.Hidden;
+            RSACanvas.Visibility = Visibility.Hidden;
         }
 
         private void CaesarMenuItem_Click(object sender, RoutedEventArgs e)
@@ -119,6 +120,77 @@ namespace BISWpf
             {
                 DecryptedMagicStringLabel.Content = "Decrypted string: " + magicSquare.Decrypt(EncryptedMagicStringLabel.Content.ToString().Replace("Encrypted string: ", ""), magicSquare.magicSquare);
             }
+        }
+
+        private void RSAEncryptButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (RSAToEncodeBox.Text.Length > 0)
+            {
+                if (PrimePNumberBox.Text.Length > 0 && PrimeQNumberBox.Text.Length > 0)
+                {
+                    long p = Convert.ToInt64(PrimePNumberBox.Text);
+                    long q = Convert.ToInt64(PrimeQNumberBox.Text);
+
+                    if (RSA.IsTheNumberSimple(q) && RSA.IsTheNumberSimple(p))
+                    {
+                        long n = p * q;
+                        long m = (p - 1) * (q - 1);
+                        long d = RSA.Calculate_d(m);
+                        long e_ = RSA.Calculate_e(d, m);
+
+                        List<string> result = new RSA().Encrypt(RSAToEncodeBox.Text.Trim().ToUpper(), e_, n);
+
+                        foreach (string item in result)
+                        {
+                            EncryptedRSAStringLabel.Content += item + " ";
+                        }
+
+                        DKeyNumberBox.Text = d.ToString();
+                        NKeyNumberBox.Text = n.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("p или q - не простые числа!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Введите p и q!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Введите тескт для шифрования");
+            }
+        }
+
+        private void RSADecryptButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (EncryptedRSAStringLabel.Content.ToString().Length > 0)
+            {
+                if (DKeyNumberBox.Text.Length > 0 && NKeyNumberBox.Text.Length > 0)
+                {
+                    long d = Convert.ToInt64(DKeyNumberBox.Text);
+                    long n = Convert.ToInt64(NKeyNumberBox.Text);
+
+                    List<string> input = EncryptedRSAStringLabel.Content.ToString().Trim().Split(' ').ToList();
+                    DecryptedRSAStringLabel.Content = new RSA().Decrypt(input, d, n);
+                }
+                else
+                {
+                    MessageBox.Show("Отсутствует секретный ключ");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Текст для дешифровки отсутсвует");
+            }
+        }
+
+        private void RSAMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeVisibility();
+            RSACanvas.Visibility = Visibility.Visible;
         }
     }
 }

@@ -17,6 +17,13 @@
                 <MenuItem Name="UserStatistic" Header="Пользователи"></MenuItem>
                 <MenuItem Name="RouteStatistic" Header="Маршруты"></MenuItem>
             </MenuItem>
+            <MenuItem Header="Lab 3" Width="55" FontFamily="Century Gothic" FontSize="14">
+                <MenuItem Name="as" Header="Пользователи"></MenuItem>
+                <MenuItem Name="ad" Header="Маршруты"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Lab 4" Width="55" FontFamily="Century Gothic" FontSize="14">
+                <MenuItem Name="RSAMenuItem" Header="RSA" Click="RSAMenuItem_Click"></MenuItem>
+            </MenuItem>
         </Menu>
         <Canvas HorizontalAlignment="Left" Height="381" Margin="10,30,0,0" VerticalAlignment="Top" Width="874">
             <Canvas x:Name="CaesarCipherCanvas" Height="381" Width="874" Visibility="Hidden">
@@ -38,6 +45,24 @@
                 <Label x:Name="MagicSquareTextLabel" Content="" Canvas.Left="435" Canvas.Top="77"/>
                 <Label x:Name="EncryptedMagicStringLabel" Content="" Canvas.Left="10" Canvas.Top="314"/>
                 <Label x:Name="DecryptedMagicStringLabel" Content="" Canvas.Left="10" Canvas.Top="345"/>
+            </Canvas>
+            <Canvas x:Name="RSACanvas" Height="381" Width="874" Visibility="Hidden">
+                <Label Content="String to encrypt" Canvas.Left="10" Canvas.Top="33" FontFamily="Century Gothic" FontSize="14"/>
+                <TextBox x:Name="RSAToEncodeBox" Height="23" Canvas.Left="161" TextWrapping="Wrap" Canvas.Top="37" Width="512" FontFamily="Century Gothic" FontSize="14"/>
+                <Button x:Name="RSAEncryptButton" Content="Encrypt" Canvas.Left="678" Canvas.Top="37" Width="75" FontFamily="Century Gothic" FontSize="14" Click="RSAEncryptButton_Click"/>
+                <Button x:Name="RSADecryptButton" Content="Decrypt" Canvas.Left="758" Canvas.Top="37" Width="75" FontFamily="Century Gothic" FontSize="14" Click="RSADecryptButton_Click"/>
+                <Label x:Name="EncryptedRSAStringLabel" Content="" Canvas.Left="10" Canvas.Top="124" RenderTransformOrigin="0.3,-0.192"/>
+                <Label x:Name="DecryptedRSAStringLabel" Content="" Canvas.Left="10" Canvas.Top="261"/>
+                <Label Content="Prime numbers:" Canvas.Left="10" Canvas.Top="65"/>
+                <Label Content="p = " Canvas.Left="123" Canvas.Top="65"/>
+                <TextBox x:Name="PrimePNumberBox" Height="23" Canvas.Left="160" TextWrapping="Wrap" Canvas.Top="65" Width="71"/>
+                <Label Content="q = " Canvas.Left="245" Canvas.Top="65"/>
+                <TextBox x:Name="PrimeQNumberBox" Height="23" Canvas.Left="282" TextWrapping="Wrap" Canvas.Top="65" Width="71"/>
+                <Label Content="Secret keys:" Canvas.Left="10" Canvas.Top="93" Width="93"/>
+                <Label Content="d = " Canvas.Left="123" Canvas.Top="93"/>
+                <TextBox x:Name="DKeyNumberBox" Height="23" Canvas.Left="160" TextWrapping="Wrap" Canvas.Top="93" Width="71"/>
+                <Label Content="n = " Canvas.Left="245" Canvas.Top="93"/>
+                <TextBox x:Name="NKeyNumberBox" Height="23" Canvas.Left="282" TextWrapping="Wrap" Canvas.Top="93" Width="71"/>
             </Canvas>
         </Canvas>
     </Grid>
