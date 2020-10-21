@@ -1,0 +1,10 @@
+G:\УЧЕБА\4 курс\ОЗИ\Labs\ConsoleApp4\bin\Debug\ConsoleApp4.exe.config
+G:\УЧЕБА\4 курс\ОЗИ\Labs\ConsoleApp4\bin\Debug\ConsoleApp4.exe
+G:\УЧЕБА\4 курс\ОЗИ\Labs\ConsoleApp4\bin\Debug\ConsoleApp4.pdb
+G:\УЧЕБА\4 курс\ОЗИ\Labs\ConsoleApp4\bin\Debug\BIS.dll
+G:\УЧЕБА\4 курс\ОЗИ\Labs\ConsoleApp4\bin\Debug\BIS.pdb
+G:\УЧЕБА\4 курс\ОЗИ\Labs\ConsoleApp4\obj\Debug\ConsoleApp4.csprojAssemblyReference.cache
+G:\УЧЕБА\4 курс\ОЗИ\Labs\ConsoleApp4\obj\Debug\ConsoleApp4.csproj.CoreCompileInputs.cache
+G:\УЧЕБА\4 курс\ОЗИ\Labs\ConsoleApp4\obj\Debug\ConsoleApp4.csproj.CopyComplete
+G:\УЧЕБА\4 курс\ОЗИ\Labs\ConsoleApp4\obj\Debug\ConsoleApp4.exe
+G:\УЧЕБА\4 курс\ОЗИ\Labs\ConsoleApp4\obj\Debug\ConsoleApp4.pdb
