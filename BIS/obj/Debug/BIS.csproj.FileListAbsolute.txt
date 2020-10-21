@@ -3,4 +3,3 @@ G:\УЧЕБА\4 курс\ОЗИ\Labs\BIS\bin\Debug\BIS.pdb
 G:\УЧЕБА\4 курс\ОЗИ\Labs\BIS\obj\Debug\BIS.csproj.CoreCompileInputs.cache
 G:\УЧЕБА\4 курс\ОЗИ\Labs\BIS\obj\Debug\BIS.dll
 G:\УЧЕБА\4 курс\ОЗИ\Labs\BIS\obj\Debug\BIS.pdb
-G:\УЧЕБА\4 курс\ОЗИ\Labs\BIS\obj\Debug\BIS.csprojAssemblyReference.cache
