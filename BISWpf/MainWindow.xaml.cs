@@ -32,6 +32,8 @@ namespace BISWpf
         {
             CaesarCipherCanvas.Visibility = Visibility.Hidden;
             MagicSquareCanvas.Visibility = Visibility.Hidden;
+            GammaCanvas.Visibility = Visibility.Hidden;
+            ExponentialCanvas.Visibility = Visibility.Hidden;
             RSACanvas.Visibility = Visibility.Hidden;
         }
 
@@ -133,6 +135,9 @@ namespace BISWpf
 
                     if (RSA.IsTheNumberSimple(q) && RSA.IsTheNumberSimple(p))
                     {
+                        EncryptedRSAStringLabel.Content = "";
+                        DecryptedRSAStringLabel.Content = "";
+
                         long n = p * q;
                         long m = (p - 1) * (q - 1);
                         long d = RSA.Calculate_d(m);
@@ -170,6 +175,8 @@ namespace BISWpf
             {
                 if (DKeyNumberBox.Text.Length > 0 && NKeyNumberBox.Text.Length > 0)
                 {
+                    DecryptedRSAStringLabel.Content = "";
+
                     long d = Convert.ToInt64(DKeyNumberBox.Text);
                     long n = Convert.ToInt64(NKeyNumberBox.Text);
 
@@ -191,6 +198,72 @@ namespace BISWpf
         {
             ChangeVisibility();
             RSACanvas.Visibility = Visibility.Visible;
+        }
+
+        private void GammaEncryptButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (TextToEncodeBox.Text.Length > 0)
+            {
+                GammaEncryptedText.Content = "";
+                GammaDecryptedText.Content = "";
+                GammaEncryptedText.Content = MultipleGamma.Encrypt(TextToEncodeBox.Text);
+            }
+            else
+            {
+                MessageBox.Show("Введите тескт для шифрования");
+            }
+        }
+
+        private void GammaDecryptButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (GammaEncryptedText.Content.ToString().Length > 0)
+            {
+                GammaDecryptedText.Content = "";
+                GammaDecryptedText.Content = MultipleGamma.Decrypt(GammaEncryptedText.Content.ToString(), MultipleGamma.gammas);
+            }
+            else
+            {
+                MessageBox.Show("Текст для дешифровки отсутсвует");
+            }
+        }
+
+        private void GammaMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeVisibility();
+            GammaCanvas.Visibility = Visibility.Visible;
+        }
+
+        private void ExponentialEncryptButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ExponentialTextToEncodeBox.Text.Length > 0)
+            {
+                ExponentialEncryptedText.Content = "";
+                ExponentialDecryptedText.Content = "";
+                ExponentialEncryptedText.Content = new ExponentialCipher().Encrypt(ExponentialTextToEncodeBox.Text);
+            }
+            else
+            {
+                MessageBox.Show("Введите тескт для шифрования");
+            }
+        }
+
+        private void ExponentialDecryptButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ExponentialEncryptedText.Content.ToString().Length > 0)
+            {
+                ExponentialDecryptedText.Content = "";
+                ExponentialDecryptedText.Content = new ExponentialCipher().Decrypt(ExponentialEncryptedText.Content.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Текст для дешифровки отсутсвует");
+            }
+        }
+
+        private void ExponentialMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeVisibility();
+            ExponentialCanvas.Visibility = Visibility.Visible;
         }
     }
 }

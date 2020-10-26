@@ -14,11 +14,13 @@
                 <MenuItem x:Name="MagicSquareMenuItem" Header="Магический квадрат" Click="MagicSquareMenuItem_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="Lab 2" Width="55" FontFamily="Century Gothic" FontSize="14">
-                <MenuItem Name="UserStatistic" Header="Пользователи"></MenuItem>
-                <MenuItem Name="RouteStatistic" Header="Маршруты"></MenuItem>
+                <MenuItem Name="GammaMenuItem" Header="Многократное наложение гамм" Click="GammaMenuItem_Click"></MenuItem>
+                <Separator />
+                <MenuItem Name="ExponentialMenuItem" Header="Экспоненциальный шифр" Click="ExponentialMenuItem_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="Lab 3" Width="55" FontFamily="Century Gothic" FontSize="14">
                 <MenuItem Name="as" Header="Пользователи"></MenuItem>
+                <Separator />
                 <MenuItem Name="ad" Header="Маршруты"></MenuItem>
             </MenuItem>
             <MenuItem Header="Lab 4" Width="55" FontFamily="Century Gothic" FontSize="14">
@@ -45,6 +47,22 @@
                 <Label x:Name="MagicSquareTextLabel" Content="" Canvas.Left="435" Canvas.Top="77"/>
                 <Label x:Name="EncryptedMagicStringLabel" Content="" Canvas.Left="10" Canvas.Top="314"/>
                 <Label x:Name="DecryptedMagicStringLabel" Content="" Canvas.Left="10" Canvas.Top="345"/>
+            </Canvas>
+            <Canvas x:Name="GammaCanvas" Height="381" Width="874" Visibility="Hidden">
+                <Label Content="String to encrypt" Canvas.Left="10" Canvas.Top="33" FontFamily="Century Gothic" FontSize="14"/>
+                <TextBox x:Name="TextToEncodeBox" Height="23" Canvas.Left="161" TextWrapping="Wrap" Canvas.Top="36" Width="521" FontFamily="Century Gothic" FontSize="14"/>
+                <Button x:Name="GammaEncryptButton" Content="Encrypt" Canvas.Left="687" Canvas.Top="36" Width="75" FontFamily="Century Gothic" FontSize="14" Click="GammaEncryptButton_Click"/>
+                <Button x:Name="GammaDecryptButton" Content="Decrypt" Canvas.Left="767" Canvas.Top="36" Width="75" FontFamily="Century Gothic" FontSize="14" Click="GammaDecryptButton_Click"/>
+                <Label x:Name="GammaEncryptedText" Content="" Canvas.Left="10" Canvas.Top="97" FontFamily="Century Gothic" FontSize="14"/>
+                <Label x:Name="GammaDecryptedText" Content="" Canvas.Left="10" Canvas.Top="128" FontFamily="Century Gothic" FontSize="14"/>
+            </Canvas>
+            <Canvas x:Name="ExponentialCanvas" Height="381" Width="874" Visibility="Hidden">
+                <Label Content="String to encrypt" Canvas.Left="10" Canvas.Top="33" FontFamily="Century Gothic" FontSize="14"/>
+                <TextBox x:Name="ExponentialTextToEncodeBox" Height="23" Canvas.Left="161" TextWrapping="Wrap" Canvas.Top="36" Width="521" FontFamily="Century Gothic" FontSize="14"/>
+                <Button x:Name="ExponentialEncryptButton" Content="Encrypt" Canvas.Left="687" Canvas.Top="36" Width="75" FontFamily="Century Gothic" FontSize="14" Click="ExponentialEncryptButton_Click"/>
+                <Button x:Name="ExponentialDecryptButton" Content="Decrypt" Canvas.Left="767" Canvas.Top="36" Width="75" FontFamily="Century Gothic" FontSize="14" Click="ExponentialDecryptButton_Click"/>
+                <Label x:Name="ExponentialEncryptedText" Content="" Canvas.Left="10" Canvas.Top="97" FontFamily="Century Gothic" FontSize="14"/>
+                <Label x:Name="ExponentialDecryptedText" Content="" Canvas.Left="10" Canvas.Top="128" FontFamily="Century Gothic" FontSize="14"/>
             </Canvas>
             <Canvas x:Name="RSACanvas" Height="381" Width="874" Visibility="Hidden">
                 <Label Content="String to encrypt" Canvas.Left="10" Canvas.Top="33" FontFamily="Century Gothic" FontSize="14"/>
